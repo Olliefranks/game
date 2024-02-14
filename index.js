@@ -1,21 +1,33 @@
 import inquirer from "inquirer";
 
-const start = async () => {
-  let { result } = await inquirer.prompt({
-    name: "result",
+const start = async (callback) => {
+  let { name } = await inquirer.prompt({
+    name: "name",
     type: "Input",
-    message: "What is your name?",
+    message: "Hello survivor, What is your name?",
   });
-  return result;
+  callback(name);
 };
 
-const display = async () => {
-  try {
-    let response = await start();
-    console.log(response);
-  } catch (error) {
-    console.log(error);
-  }
+const selectWeapon = async (name, callback) => {
+  let { weapon } = await inquirer.prompt({
+    name: "weapon",
+    type: "list",
+    message: `${name}, please select your weapon:`,
+    choices: ["Nerf gun", "sword", "Rubber duck", "spoon"],
+  });
+
+  callback(weapon);
 };
 
-display();
+const display = (name, weapon) => {
+  console.log(`${name} has selected ${weapon} as their weapon`);
+};
+
+start((name) => {
+  selectWeapon(name, (weapon) => {
+    display(name, weapon);
+  });
+});
+
+start();

@@ -1,10 +1,10 @@
-class person {
+class Person {
   constructor(name, health, weapon) {
     (this.name = name), (this.health = 100), (this.weapon = weapon);
   }
 }
 
-class zombieHorde {
+class ZombieHorde {
   constructor(name, health, attack) {
     this.name = "Zombies";
     this.health = 500;
