@@ -1,0 +1,3 @@
+const zombieAttack = () => {};
+
+const banditAttack = () => {};
