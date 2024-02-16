@@ -1,6 +1,12 @@
 export class Person {
   constructor(name, health, weapon) {
-    (this.name = name), (this.health = 100), (this.weapon = weapon);
+    (this.name = name), (this.weapon = weapon), (this.health = 100);
+  }
+  update(newHealth) {
+    this.health = newHealth;
+  }
+  updateWeapon(newWeapon) {
+    this.weapon = newWeapon;
   }
 }
 
